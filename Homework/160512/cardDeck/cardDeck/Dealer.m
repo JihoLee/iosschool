@@ -16,6 +16,7 @@
 }
 
 - (void)createDeck {
+    
     NSLog(@"=====Create Deck=====");
     
     cardDeck = [[NSMutableArray alloc] initWithCapacity:1];
@@ -43,8 +44,11 @@
                 colorBool = 0;
      
             }
-            
-            [card setType:cardType[i] number:cardNumber[j] color:cardColor[colorBool]];
+            // @property 적용
+            [card setType:cardType[i]];
+            [card setNumber:cardNumber[j]];
+            [card setColor:cardColor[colorBool]];
+//            [card setType:cardType[i] number:cardNumber[j] color:cardColor[colorBool]];
             [cardDeck addObject:card];
             
         }
@@ -74,7 +78,7 @@
 - (void)printDeck {
     for (Card *c in cardDeck) {
         
-        NSLog(@"card : %@, %@, %@",[c getCardType], [c getCardNumber], [c getCardColor]);
+        NSLog(@"card : %@, %@, %@",[c type], [c number], [c color]);
     }
 }
 

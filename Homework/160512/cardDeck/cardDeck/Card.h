@@ -10,10 +10,14 @@
 
 @interface Card : NSObject
 
-- (void)setType:(NSString *) t number:(NSString *) n color:(NSString *) c;
-    
-- (NSString *)getCardType;
-- (NSString *)getCardNumber;
-- (NSString *)getCardColor;
+@property(nonatomic, weak) NSString *type;
+@property(nonatomic, weak) NSString *number;
+@property(nonatomic, weak) NSString *color;
+
+//- (void)setType:(NSString *) t number:(NSString *) n color:(NSString *) c;
+
+//- (NSString *)getCardType;
+//- (NSString *)getCardNumber;
+//- (NSString *)getCardColor;
 
 @end
