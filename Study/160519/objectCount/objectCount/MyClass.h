@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MyClass : NSObject
+@interface MyClass : NSObject {
+    NSInteger _age;
+}
+
+- (NSInteger)age;
+- (void)setAge:(NSInteger)age;
+
+@property (strong, nonatomic) NSString *name;
 
 @end

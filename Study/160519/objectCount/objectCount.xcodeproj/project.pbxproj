@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32F9A8E11CED845E00C34EF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F9A8E01CED845E00C34EF8 /* main.m */; };
+		32F9A8E91CED9E6200C34EF8 /* MyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F9A8E81CED9E6200C34EF8 /* MyClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		32F9A8DD1CED845E00C34EF8 /* objectCount */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = objectCount; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F9A8E01CED845E00C34EF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32F9A8E71CED9E6200C34EF8 /* MyClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClass.h; sourceTree = "<group>"; };
+		32F9A8E81CED9E6200C34EF8 /* MyClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,8 @@
 		32F9A8DF1CED845E00C34EF8 /* objectCount */ = {
 			isa = PBXGroup;
 			children = (
+				32F9A8E71CED9E6200C34EF8 /* MyClass.h */,
+				32F9A8E81CED9E6200C34EF8 /* MyClass.m */,
 				32F9A8E01CED845E00C34EF8 /* main.m */,
 			);
 			path = objectCount;
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32F9A8E91CED9E6200C34EF8 /* MyClass.m in Sources */,
 				32F9A8E11CED845E00C34EF8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +215,7 @@
 		32F9A8E51CED845E00C34EF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -216,6 +223,7 @@
 		32F9A8E61CED845E00C34EF8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

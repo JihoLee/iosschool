@@ -10,4 +10,18 @@
 
 @implementation MyClass
 
+- (NSInteger)age {
+    
+    return _age;
+    
+}
+
+- (void)setAge:(NSInteger)age {
+    
+    _age = age;
+    
+}
+
+
+
 @end
