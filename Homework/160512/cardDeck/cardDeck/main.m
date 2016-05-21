@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
         
         Dealer *dealer = [[Dealer alloc]init];
         [dealer createDeck];
-        [dealer shuffleDeck];
+        [dealer printDeck];
         
         
         NSLog(@"=====One Card=====");

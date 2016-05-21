@@ -8,45 +8,20 @@
 
 #import "Card.h"
 
-@implementation Card 
+@implementation Card
 
-//- (instancetype)init
-//{
-//    
-//    self = [super init];
-//    if (self) {
-//        type = [[NSString alloc]init];
-//        number = [[NSString alloc]init];
-//        color = [[NSString alloc]init];
-//    }
-//    return self;
-//    
-//}
-//
-//- (void)setType:(NSString *) t number:(NSString *) n color:(NSString *) c {
-//    
-//    type = t;
-//    number = n;
-//    color = c;
-//    
-//}
-//
-//- (NSString *)getCardType {
-//    
-//    
-//    return type;
-//}
-//
-//- (NSString *)getCardNumber {
-//    
-//    
-//    return number;
-//}
-//
-//- (NSString *)getCardColor {
-//    
-//    
-//    return color;
-//}
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        /*
+         카드 타입, 숫자, 색상 정보
+         */
+        NSArray *cardType = @[@"Space", @"Diamond", @"Clover", @"Heart"];
+        NSArray *cardNumber = @[@"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K", @"A"];
+        NSArray *cardColor = @[@"Black", @"Red"];
+    }
+    return self;
+}
 
 @end

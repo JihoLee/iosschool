@@ -15,9 +15,14 @@
     Card *card;
 }
 
-- (void)createDeck {
+typedef NS_ENUM(NSInteger, color) {
     
-    NSLog(@"=====Create Deck=====");
+    CardColorBlack = 0,
+    CardColorRed   = 1
+    
+};
+
+- (void)createDeck {
     
     cardDeck = [[NSMutableArray alloc] initWithCapacity:1];
         BOOL colorBool = 0;
@@ -36,12 +41,12 @@
 
             if ([cardType[i] isEqualToString:@"Space"] || [cardType[i] isEqualToString:@"Clover"]) {
                 
-                colorBool = 1;
+                colorBool = CardColorBlack;
                 
             }
             else {
             
-                colorBool = 0;
+                colorBool = CardColorRed;
      
             }
             // @property 적용
@@ -54,24 +59,25 @@
         }
         
     }
-
-    [self printDeck];
+    cardDeck = [self shuffleDeck:cardDeck];
 }
 
-- (void)shuffleDeck {
+- (NSMutableArray *)shuffleDeck:(NSMutableArray *)list {
     
      NSLog(@"=====Shuffle Deck=====");
     
-    for (int i = 0; i < [cardDeck count] * 2; i++) {
+    NSMutableArray *cardList = list;
+    
+    for (int i = 0; i < [cardList count] * 2; i++) {
         
-        NSInteger ranFirst = arc4random()  % ([cardDeck count]-1);
-        NSInteger ranSecond = arc4random()  % ([cardDeck count]-1);
+        NSInteger randomNumber = arc4random()  % ([cardDeck count]-1);
+
         
-        [cardDeck exchangeObjectAtIndex:ranFirst withObjectAtIndex:ranSecond];
+        [cardDeck exchangeObjectAtIndex:randomNumber withObjectAtIndex:randomNumber];
 
     }
     
-    [self printDeck];
+    return cardList;
     
 }
 

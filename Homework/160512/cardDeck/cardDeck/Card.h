@@ -14,10 +14,4 @@
 @property(nonatomic, weak) NSString *number;
 @property(nonatomic, weak) NSString *color;
 
-//- (void)setType:(NSString *) t number:(NSString *) n color:(NSString *) c;
-
-//- (NSString *)getCardType;
-//- (NSString *)getCardNumber;
-//- (NSString *)getCardColor;
-
 @end

@@ -11,7 +11,7 @@
 @interface Dealer : Card
 
 - (void)createDeck;
-- (void)shuffleDeck;
+- (void)printDeck;
 
 - (Card *)getOneCard;
 
