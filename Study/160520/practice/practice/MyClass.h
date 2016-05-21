@@ -10,4 +10,8 @@
 
 @interface MyClass : NSObject
 
+
+@property(nonatomic) NSInteger aa;
+//- (void)setA:(NSInteger) input;
+//- (NSInteger)a;
 @end

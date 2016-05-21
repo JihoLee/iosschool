@@ -10,4 +10,14 @@
 
 @implementation MyClass
 
+//- (void)setA:(NSInteger) input {
+//    
+//    a = input;
+//}
+//
+//- (NSInteger)a {
+//    
+//    return a;
+//}
+
 @end
