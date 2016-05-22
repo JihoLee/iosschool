@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 // 1. 스왑함수 만들기
-void swapNum(int v1, int  v2) {
+// void swapNum(int v1, int  v2) => void swapNumber(int v1, int  v2)
+void swapNumber(int v1, int  v2) {
     
     int temp = 0;
     
@@ -22,7 +23,8 @@ void swapNum(int v1, int  v2) {
 }
 
 // 2. 삼각수 구하기
-int triangularNum(int value) {
+// int triangularNum(int value) => void int triangularNumber(int value)
+int triangularNumber(int value) {
     int result = 0;
     
     for (int i = 1; i <= value; i++) {
@@ -35,11 +37,11 @@ int triangularNum(int value) {
 }
 
 // 3. 삼각수 구하기 - 두 수사이의 5의 배수 삼각수
-void triangularsRangeNum(int v1, int v2) {
+void triangularsRangeNumber(int v1, int v2) {
     
     for (int i = v1; i <= v2; i++) {
         if(i % 5 == 0) {
-            triangularNum(i);
+            triangularNumber(i);
             
         }
         
@@ -48,7 +50,7 @@ void triangularsRangeNum(int v1, int v2) {
 }
 
 // 4. 각 자리수 더하는 함수
-void addAllNum(int value) {
+void addAllNumber(int value) {
     
     int result = 0;
     
@@ -72,13 +74,13 @@ void printLine() {
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        swapNum(10,25);
+        swapNumber(10,25);
         printLine();
-        triangularNum(100);
+        triangularNumber(100);
         printLine();
-        triangularsRangeNum(6, 25);
+        triangularsRangeNumber(6, 25);
         printLine();
-        addAllNum(12345);
+        addAllNumber(12345);
         printLine();
         
     }
