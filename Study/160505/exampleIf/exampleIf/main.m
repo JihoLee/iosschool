@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-int absoluteNum(int value) {
+// int absoluteNum(int value) => int absoluteNumber(int value)
+int absoluteNumber(int value) {
     
     if(value < 0) {
         
@@ -57,7 +57,7 @@ int main(int argc, const char * argv[]) {
          절대값 구하기
          */
         
-        printf("절대값은 %d입니다.\n", absoluteNum(-5));
+        printf("절대값은 %d입니다.\n", absoluteNumber(-5));
         
         /*
          문자 구분

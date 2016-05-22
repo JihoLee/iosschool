@@ -54,23 +54,26 @@ float makeRounding(float value) {
 }
 
 // 등급 구하기
-int getRank(float avg) {
+int rank(float average) {
+    // float avg => float average
+    // int getRank(float average) => int rank(float average)
+    
     
     int rank;
     
-    if(avg >= 90) {
+    if(average >= 90) {
         
         rank = 1;
     }
-    else if(avg >= 80) {
+    else if(average >= 80) {
         
         rank = 2;
     }
-    else if(avg >= 70) {
+    else if(average >= 70) {
         
         rank = 3;
     }
-    else if(avg >= 60) {
+    else if(average >= 60) {
         
         rank = 4;
     }
@@ -143,13 +146,13 @@ int main(int argc, const char * argv[]) {
          평균으로 등급구하기
          */
         
-        printf("rank : %d등급\n", getRank(88.14));
+        printf("rank : %d등급\n", rank(88.14));
         
         /*
          위 등급으로 장학금 배분해주기
          */
         
-        scholarshipWithGrade(getRank(88.14));
+        scholarshipWithGrade(rank(88.14));
         
         
     }
