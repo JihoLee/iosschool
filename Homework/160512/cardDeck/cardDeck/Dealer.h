@@ -13,6 +13,6 @@
 - (void)createDeck;
 - (void)printDeck;
 
-- (Card *)getOneCard;
+- (Card *)oneCard;
 
 @end

@@ -88,13 +88,13 @@ typedef NS_ENUM(NSInteger, color) {
     }
 }
 
-- (Card *)getOneCard {
+- (Card *)oneCard {
     
     NSInteger cardNumber = arc4random()  % ([cardDeck count]-1);
     
-    Card *cardSub = [cardDeck objectAtIndex:cardNumber];
+    Card *cardSubtraction = [cardDeck objectAtIndex:cardNumber];
     
-    return cardSub;
+    return cardSubtraction;
 }
 
 @end
