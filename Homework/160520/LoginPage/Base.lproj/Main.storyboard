@@ -168,7 +168,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="MtN-la-pQ1" firstAttribute="top" secondItem="jZE-NM-YmP" secondAttribute="top" constant="31" id="1fa-fe-Fsb"/>
                                     <constraint firstItem="HlM-G2-ygT" firstAttribute="width" secondItem="Hh9-pC-KCc" secondAttribute="width" id="3gV-pC-7Vl"/>
