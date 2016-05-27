@@ -26,10 +26,12 @@
     
     __weak ViewController *wview = self;
     
-    [wview.loginView setFrame:CGRectMake(50, -400, 500, 400)];
+    
+    [self.loginView setFrame:CGRectMake(self.loginView.frame.origin.x, self.loginView.frame.origin.y - 500, self.loginView.frame.size.width, self.loginView.frame.size.height)];
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        [wview.loginView setFrame:CGRectMake(50, 200, 500, 200)];
+        
+        [wview.loginView setFrame:CGRectMake(wview.loginView.frame.origin.x, wview.loginView.frame.origin.y + 500, wview.loginView.frame.size.width, wview.loginView.frame.size.height)];
         
     } completion:^(BOOL finished) {
         
@@ -61,15 +63,14 @@
     
 }
 
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    
+//    [self playAnimation]; 
     return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        [self.loginView setFrame:CGRectMake(50, 50, 500, 200)];
-    } completion:nil];
+//    [self playAnimation];
     
 //    [UIView animateWithDuration:1 animations:^{
 //        [self.loginView setFrame:CGRectMake(50, 50, 500, 200)];
@@ -77,15 +78,17 @@
 //        
 //    }];
     
-    if(textField == self.userIdTextField) {
-        [self.userIdTextField becomeFirstResponder];
-    }
-    else if(textField == self.passwordTextField) {
-        
-        [self.passwordTextField becomeFirstResponder];
-    }
+//    if(textField == self.userIdTextField) {
+//        [self.userIdTextField becomeFirstResponder];
+//    }
+//    else if(textField == self.passwordTextField) {
+//        
+//        [self.passwordTextField becomeFirstResponder];
+//    }
     
 }
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSLog(@"aa");
