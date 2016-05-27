@@ -54,6 +54,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpT-DU-8G2">
                                         <rect key="frame" x="50" y="134" width="52" height="30"/>
                                         <state key="normal" title="로그인"/>
+                                        <connections>
+                                            <action selector="loginEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wXK-7u-4u2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3g-I5-EF6">
                                         <rect key="frame" x="398" y="134" width="52" height="30"/>
@@ -105,6 +108,10 @@
                             <constraint firstItem="5fZ-yY-qZM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zO3-Ax-sx0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="pk6-Ij-6Zb" id="LNu-Ts-iXu"/>
+                        <outlet property="userIdTextField" destination="Ech-eG-tag" id="PIH-zN-dgm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
