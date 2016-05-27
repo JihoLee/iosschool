@@ -10,6 +10,8 @@
 
 @interface ViewController () <UITextFieldDelegate>
 
+@property (nonatomic, weak) IBOutlet UIView *loginView;
+
 @property (nonatomic, weak) IBOutlet UITextField *userIdTextField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 
@@ -21,6 +23,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    __weak ViewController *wview = self;
+    
+    [wview.loginView setFrame:CGRectMake(50, -400, 500, 400)];
+    
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [wview.loginView setFrame:CGRectMake(50, 200, 500, 200)];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
     
     self.userIdTextField.tag = 1;
     self.passwordTextField.tag = 2;
@@ -54,6 +67,15 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.loginView setFrame:CGRectMake(50, 50, 500, 200)];
+    } completion:nil];
+    
+//    [UIView animateWithDuration:1 animations:^{
+//        [self.loginView setFrame:CGRectMake(50, 50, 500, 200)];
+//    } completion:^(BOOL finished) {
+//        
+//    }];
     
     if(textField == self.userIdTextField) {
         [self.userIdTextField becomeFirstResponder];

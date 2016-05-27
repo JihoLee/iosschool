@@ -109,6 +109,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginView" destination="5fZ-yY-qZM" id="e36-Qw-hTX"/>
                         <outlet property="passwordTextField" destination="pk6-Ij-6Zb" id="LNu-Ts-iXu"/>
                         <outlet property="userIdTextField" destination="Ech-eG-tag" id="PIH-zN-dgm"/>
                     </connections>
