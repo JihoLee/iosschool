@@ -42,14 +42,22 @@
 
 - (IBAction)connectUrl:(id)sender {
     
-    NSString *urlString = [@"http://" stringByAppendingString:self.pageUrl.text];
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    
-    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    if([self.pageUrl.text isEqualToString:@"www.naver.com"]) {
+        
+        NSLog(@"www.naver.com은 접속할 수 없습니다.");
+    }
+    else {
+        NSString *urlString = [@"http://" stringByAppendingString:self.pageUrl.text];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        
+        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+        
+        
+        
+    }
     
     [self.pageUrl resignFirstResponder];
-    
     
     
 }
