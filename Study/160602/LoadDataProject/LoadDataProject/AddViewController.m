@@ -7,8 +7,13 @@
 //
 
 #import "AddViewController.h"
+#import "DataCenter.h"
 
 @interface AddViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextfield;
+
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 
 @end
 
@@ -22,6 +27,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addAction:(UIButton *)sender {
+    
+    NSString *name = [self.nameTextfield text];
+    NSString *phone = [self.phoneTextField text];
+    
+    [[DataCenter sharedInstance] saveFriendName:name phoneNum:phone];
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 /*

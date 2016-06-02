@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   friendList.plist
-   LoadDataProject
-
-   Created by LEEJIHO on 2016. 6. 2..
-   Copyright (c) 2016년 WingsCompany. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<array>
+	<dict>
+		<key>name</key>
+		<string>땡땡</string>
+		<key>age</key>
+		<string>30</string>
+		<key>height</key>
+		<string>200</string>
+		<key>phone</key>
+		<string>01099999997</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>김민지</string>
+		<key>age</key>
+		<string>27</string>
+		<key>height</key>
+		<string>165</string>
+		<key>phone</key>
+		<string>01099999998</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>신두식</string>
+		<key>age</key>
+		<string>28</string>
+		<key>height</key>
+		<string>173</string>
+		<key>phone</key>
+		<string>01099999999</string>
+	</dict>
+</array>
 </plist>

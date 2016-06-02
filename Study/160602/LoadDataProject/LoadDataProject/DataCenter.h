@@ -10,4 +10,8 @@
 
 @interface DataCenter : NSObject
 
++ (instancetype)sharedInstance;
+
+- (NSArray *)friendList;
+- (void)saveFriendName:(NSString *) name phoneNum:(NSString *) num;
 @end
