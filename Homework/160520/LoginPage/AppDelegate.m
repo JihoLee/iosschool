@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults boolForKey:@"autologin"]) {
+        NSLog(@"autologin");
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainTableViewController *mainVC = [storyBoard instantiateViewControllerWithIdentifier:@"Main"];
+        
+        self.window.rootViewController = mainVC;
+        [self.window makeKeyAndVisible];
+        
+    }
+    
     return YES;
 }
 

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32626BE51D03168100DF4FDC /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32626BE41D03168100DF4FDC /* SignUpViewController.m */; };
 		328976711CF1FBF4001BC10F /* thumb_IMG_0043_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 328976701CF1FBF4001BC10F /* thumb_IMG_0043_1024.jpg */; };
+		328C5B4D1CFD85D3000AEC8E /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 328C5B4C1CFD85D3000AEC8E /* MainTableViewController.m */; };
 		32AB49C01CEEFB33007AEE41 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AB49BF1CEEFB33007AEE41 /* main.m */; };
 		32AB49C31CEEFB33007AEE41 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AB49C21CEEFB33007AEE41 /* AppDelegate.m */; };
 		32AB49C61CEEFB33007AEE41 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AB49C51CEEFB33007AEE41 /* ViewController.m */; };
@@ -17,7 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32626BE31D03168100DF4FDC /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		32626BE41D03168100DF4FDC /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		328976701CF1FBF4001BC10F /* thumb_IMG_0043_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumb_IMG_0043_1024.jpg; sourceTree = "<group>"; };
+		328C5B4B1CFD85D3000AEC8E /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		328C5B4C1CFD85D3000AEC8E /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		32AB49BB1CEEFB33007AEE41 /* LoginPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AB49BF1CEEFB33007AEE41 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32AB49C11CEEFB33007AEE41 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,6 +76,10 @@
 				32AB49CC1CEEFB33007AEE41 /* LaunchScreen.storyboard */,
 				32AB49CF1CEEFB33007AEE41 /* Info.plist */,
 				32AB49BE1CEEFB33007AEE41 /* Supporting Files */,
+				328C5B4B1CFD85D3000AEC8E /* MainTableViewController.h */,
+				328C5B4C1CFD85D3000AEC8E /* MainTableViewController.m */,
+				32626BE31D03168100DF4FDC /* SignUpViewController.h */,
+				32626BE41D03168100DF4FDC /* SignUpViewController.m */,
 			);
 			path = LoginPage;
 			sourceTree = "<group>";
@@ -153,6 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				328C5B4D1CFD85D3000AEC8E /* MainTableViewController.m in Sources */,
+				32626BE51D03168100DF4FDC /* SignUpViewController.m in Sources */,
 				32AB49C61CEEFB33007AEE41 /* ViewController.m in Sources */,
 				32AB49C31CEEFB33007AEE41 /* AppDelegate.m in Sources */,
 				32AB49C01CEEFB33007AEE41 /* main.m in Sources */,
