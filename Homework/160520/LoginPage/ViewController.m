@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MainTableViewController.h"
+#import "DataCenter.h"
 
 @interface ViewController () <UITextFieldDelegate>
 
@@ -77,7 +78,7 @@
         
         [self.defaults setBool:YES forKey:@"autologin"];
         
-        MainTableViewController *tableView = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTable"];
+        MainTableViewController *tableView = [self.storyboard instantiateViewControllerWithIdentifier:@"Main"];
         
         [self.navigationController pushViewController:tableView animated:YES];
     }
@@ -102,7 +103,12 @@
     
     BOOL isExist = NO;
     
-    if([userID isEqualToString:[self.defaults objectForKey:@"userid"]] && [userPW isEqualToString:[self.defaults objectForKey:@"password"]]) {
+    
+    NSMutableDictionary *dic = [[DataCenter sharedInstance] userDictionary];
+
+    NSDictionary *userInfo = [dic objectForKey:userID];
+    
+    if([userID isEqualToString:[userInfo objectForKey:@"userid"]] && [userPW isEqualToString:[userInfo objectForKey:@"password"]]){
         
         isExist = YES;
         
@@ -115,48 +121,6 @@
 //    [self playAnimation]; 
     return YES;
 }
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-//    [self playAnimation];
-    
-//    [UIView animateWithDuration:1 animations:^{
-//        [self.loginView setFrame:CGRectMake(50, 50, 500, 200)];
-//    } completion:^(BOOL finished) {
-//        
-//    }];
-    
-//    if(textField == self.userIdTextField) {
-//        [self.userIdTextField becomeFirstResponder];
-//    }
-//    else if(textField == self.passwordTextField) {
-//        
-//        [self.passwordTextField becomeFirstResponder];
-//    }
-    
-}
-
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    
-    if([identifier isEqualToString:@"SIGN_UP"]) {
-        return YES;
-    }
-    else {
-        // Segue Identifier가 두개이면 분기를 해줘야 함
-        if([self isCheckLoginWithID:self.userIdTextField.text userPW:self.passwordTextField.text]) {
-            
-            return YES;
-        }
-        else {
-            return NO;
-        }
-
-    }
-    
-    return NO;
-    
-}
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSLog(@"aa");

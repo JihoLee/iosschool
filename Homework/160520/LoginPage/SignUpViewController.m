@@ -7,24 +7,18 @@
 //
 
 #import "SignUpViewController.h"
+#import "DataCenter.h"
 
 @interface SignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *useridTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *rePasswordTextField;
-
-@property (weak, nonatomic) NSUserDefaults *defaults;
-
 @end
 
 @implementation SignUpViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.defaults = defaults;
-    
     
     
     // Do any additional setup after loading the view.
@@ -33,6 +27,7 @@
 // 회원가입
 - (IBAction)signUpEvent:(id)sender {
     
+    DataCenter *dataCenter = [DataCenter sharedInstance];
     
     // 아이디, 패스워드 빈칸여부
     if(![self.useridTextField.text isEqualToString:@""] || ![self.passwordTextField.text isEqualToString:@""] || ![self.rePasswordTextField.text isEqualToString:@""]) {
@@ -40,8 +35,7 @@
         // 두번 입력한 패스워드 일치여부 - 일치
         if([self.passwordTextField.text isEqualToString:self.rePasswordTextField.text]) {
             
-            [self.defaults setObject:self.useridTextField.text forKey:@"userid"];
-            [self.defaults setObject:self.passwordTextField.text forKey:@"password"];
+            [dataCenter addUserIdAndPassword:self.useridTextField.text password:self.passwordTextField.text];
             
             [self.navigationController popViewControllerAnimated:YES];
             
@@ -73,6 +67,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

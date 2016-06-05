@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		32626BE51D03168100DF4FDC /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32626BE41D03168100DF4FDC /* SignUpViewController.m */; };
+		32626BE81D04024C00DF4FDC /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32626BE71D04024C00DF4FDC /* DataCenter.m */; };
+		32626BEA1D0456D100DF4FDC /* friendList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32626BE91D0456D100DF4FDC /* friendList.plist */; };
 		328976711CF1FBF4001BC10F /* thumb_IMG_0043_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 328976701CF1FBF4001BC10F /* thumb_IMG_0043_1024.jpg */; };
 		328C5B4D1CFD85D3000AEC8E /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 328C5B4C1CFD85D3000AEC8E /* MainTableViewController.m */; };
 		32AB49C01CEEFB33007AEE41 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AB49BF1CEEFB33007AEE41 /* main.m */; };
@@ -21,6 +23,9 @@
 /* Begin PBXFileReference section */
 		32626BE31D03168100DF4FDC /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		32626BE41D03168100DF4FDC /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		32626BE61D04024C00DF4FDC /* DataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCenter.h; sourceTree = "<group>"; };
+		32626BE71D04024C00DF4FDC /* DataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCenter.m; sourceTree = "<group>"; };
+		32626BE91D0456D100DF4FDC /* friendList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friendList.plist; sourceTree = "<group>"; };
 		328976701CF1FBF4001BC10F /* thumb_IMG_0043_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumb_IMG_0043_1024.jpg; sourceTree = "<group>"; };
 		328C5B4B1CFD85D3000AEC8E /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		328C5B4C1CFD85D3000AEC8E /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
@@ -69,12 +74,15 @@
 				328976701CF1FBF4001BC10F /* thumb_IMG_0043_1024.jpg */,
 				32AB49C11CEEFB33007AEE41 /* AppDelegate.h */,
 				32AB49C21CEEFB33007AEE41 /* AppDelegate.m */,
+				32626BE61D04024C00DF4FDC /* DataCenter.h */,
+				32626BE71D04024C00DF4FDC /* DataCenter.m */,
 				32AB49C41CEEFB33007AEE41 /* ViewController.h */,
 				32AB49C51CEEFB33007AEE41 /* ViewController.m */,
 				32AB49C71CEEFB33007AEE41 /* Main.storyboard */,
 				32AB49CA1CEEFB33007AEE41 /* Assets.xcassets */,
 				32AB49CC1CEEFB33007AEE41 /* LaunchScreen.storyboard */,
 				32AB49CF1CEEFB33007AEE41 /* Info.plist */,
+				32626BE91D0456D100DF4FDC /* friendList.plist */,
 				32AB49BE1CEEFB33007AEE41 /* Supporting Files */,
 				328C5B4B1CFD85D3000AEC8E /* MainTableViewController.h */,
 				328C5B4C1CFD85D3000AEC8E /* MainTableViewController.m */,
@@ -151,6 +159,7 @@
 			files = (
 				32AB49CE1CEEFB33007AEE41 /* LaunchScreen.storyboard in Resources */,
 				32AB49CB1CEEFB33007AEE41 /* Assets.xcassets in Resources */,
+				32626BEA1D0456D100DF4FDC /* friendList.plist in Resources */,
 				328976711CF1FBF4001BC10F /* thumb_IMG_0043_1024.jpg in Resources */,
 				32AB49C91CEEFB33007AEE41 /* Main.storyboard in Resources */,
 			);
@@ -167,6 +176,7 @@
 				32626BE51D03168100DF4FDC /* SignUpViewController.m in Sources */,
 				32AB49C61CEEFB33007AEE41 /* ViewController.m in Sources */,
 				32AB49C31CEEFB33007AEE41 /* AppDelegate.m in Sources */,
+				32626BE81D04024C00DF4FDC /* DataCenter.m in Sources */,
 				32AB49C01CEEFB33007AEE41 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
