@@ -13,6 +13,7 @@
 		32950D571D09440C006DDCFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32950D551D09440C006DDCFD /* Main.storyboard */; };
 		32950D591D09440C006DDCFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32950D581D09440C006DDCFD /* Assets.xcassets */; };
 		32950D5C1D09440C006DDCFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32950D5A1D09440C006DDCFD /* LaunchScreen.storyboard */; };
+		329AC7361D09533A00A92552 /* KVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AC7351D09533A00A92552 /* KVOViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		32950D581D09440C006DDCFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32950D5B1D09440C006DDCFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32950D5D1D09440C006DDCFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		329AC7341D09533A00A92552 /* KVOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOViewController.h; sourceTree = "<group>"; };
+		329AC7351D09533A00A92552 /* KVOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				32950D5A1D09440C006DDCFD /* LaunchScreen.storyboard */,
 				32950D5D1D09440C006DDCFD /* Info.plist */,
 				32950D4C1D09440C006DDCFD /* Supporting Files */,
+				329AC7341D09533A00A92552 /* KVOViewController.h */,
+				329AC7351D09533A00A92552 /* KVOViewController.m */,
 			);
 			path = PropertyAndKVO;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32950D541D09440C006DDCFD /* ViewController.m in Sources */,
+				329AC7361D09533A00A92552 /* KVOViewController.m in Sources */,
 				32950D511D09440C006DDCFD /* AppDelegate.m in Sources */,
 				32950D4E1D09440C006DDCFD /* main.m in Sources */,
 			);
@@ -300,6 +306,7 @@
 				32950D621D09440C006DDCFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

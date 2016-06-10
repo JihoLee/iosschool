@@ -10,4 +10,6 @@
 
 @interface KVOViewController : UIViewController
 
+@property NSInteger count;
+
 @end
