@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController () <UIWebViewDelegate>
+
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
 @property (nonatomic, weak) IBOutlet UITextField *pageUrl;
 
@@ -27,7 +28,6 @@
     
     self.indicatorView.hidden = YES;
     
-    
     self.backButton.enabled = NO;
     self.frontButton.enabled = NO;
     
@@ -41,21 +41,21 @@
 }
 
 - (IBAction)connectUrl:(id)sender {
+    NSURL *url = nil;
     
-    if([self.pageUrl.text isEqualToString:@"www.naver.com"]) {
+    NSRange range = [self.pageUrl.text rangeOfString:@"naver"];
+    
+    if(range.location == NSNotFound) {
         
-        NSLog(@"www.naver.com은 접속할 수 없습니다.");
-    }
-    else {
-        NSString *urlString = [@"http://" stringByAppendingString:self.pageUrl.text];
-        NSURL *url = [NSURL URLWithString:urlString];
-        
+        if([self.pageUrl.text hasPrefix:@"http://"]) {
+            url = [NSURL URLWithString:self.pageUrl.text];
+        } else {
+            url = [NSURL URLWithString:[@"http://" stringByAppendingString:self.pageUrl.text]];
+        }
         
         [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
-        
-        
-        
     }
+
     
     [self.pageUrl resignFirstResponder];
     
