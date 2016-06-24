@@ -43,7 +43,7 @@
                     <navigationItem key="navigationItem" title="Images" id="KDW-bi-lIc">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="8fA-jf-FfH">
                             <connections>
-                                <action selector="refleshTableView:" destination="Q1j-B3-Vjm" id="Gbn-qj-zQF"/>
+                                <action selector="refleshTableView" destination="Q1j-B3-Vjm" id="2Cr-50-rop"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="kh1-LO-Bhg">

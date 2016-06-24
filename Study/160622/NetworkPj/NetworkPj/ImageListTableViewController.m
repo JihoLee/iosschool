@@ -15,13 +15,11 @@
 @property (nonatomic) UIImagePickerController *imagePicker;
 @property (nonatomic) UIImage *selectedImage;
 @property (nonatomic) NSString *imageName;
+@property (nonatomic) NSString *userId;
 
-/*
- --- 임시
- */
+@property (nonatomic) NSArray *result;
 
-@property (nonatomic) NSMutableArray *imageArray;
-@property (nonatomic) NSMutableArray *nameArray;
+@property (nonatomic, strong) RequestObject *request;
 
 @end
 
@@ -30,13 +28,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    if([userId length] > 0) {
-        self.title = [NSString stringWithFormat:@"%@번님, 환영합니다.", userId];
+    RequestObject *request = [RequestObject requestInstance];
+    self.request = request;
+    self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    if([self.userId length] > 0) {
+        self.title = [NSString stringWithFormat:@"%@번님, 환영합니다.", self.userId];
     }
     else {
         self.title = @"Images";
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:ImageListUpdatedNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestImageList) name:ImageUploadDidSuccessNotification object:nil];
+
+    [self requestImageList];
     
     UIBarButtonItem *newBackButton =
     [[UIBarButtonItem alloc] initWithTitle:@""
@@ -52,9 +58,6 @@
     [imagePicker setDelegate:self];
     
     self.imagePicker = imagePicker;
-    
-    self.imageArray = [[NSMutableArray alloc] initWithCapacity:1];
-    self.nameArray = [[NSMutableArray alloc] initWithCapacity:1];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,6 +66,25 @@
     if ([userId length] == 0) {
         [self showInputIdentifyAlert];
     }
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.tableView reloadData];
+}
+
+- (void)refreshTable {
+    
+    self.result = [self.request imageInfoJSONArray];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [self refleshTableView];
+    });
+    
+    
+    
     
 }
 
@@ -80,15 +102,44 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.imageArray count];
+    return [self.result count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.imageView.image = [self.imageArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [self.nameArray objectAtIndex:indexPath.row];
+    NSDictionary *imageInfo = self.result[indexPath.row];
+    
+    NSString *imageTitle = imageInfo[JSONKeyImageTitle];
+    cell.textLabel.text = imageTitle;
+    
+    NSString *thumbnailURLString = imageInfo[JSONKeyThumbnailURL];
+    NSURL *thumbnailURL = [NSURL URLWithString:thumbnailURLString];
+    
+    cell.imageView.image = [UIImage imageNamed:@"placeholder"];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    // 동기코드이기때문에 이미지를 받아올 때까지 화면이 정지함
+//    cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailURL]];
+    
+    // 비동기코드
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:thumbnailURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(data) {
+            UIImage *image = [UIImage imageWithData:data];
+            if(image) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // 테이블뷰의 indexPath에 해당하는 셀을 가져옴
+                    UITableViewCell *cellForUpdate = [tableView cellForRowAtIndexPath:indexPath];
+                    cellForUpdate.imageView.image = image;
+                });
+            }
+        }
+    }];
+    
+    [task resume];
+    
     return cell;
 }
 
@@ -97,6 +148,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
     
 }
 
@@ -112,17 +165,20 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         UITextField *userIdTextField = [[controller textFields] firstObject];
-        NSString *userId = [userIdTextField text];
+        self.userId = [userIdTextField text];
         
-        if([userId integerValue] > 120 || [userId integerValue] < 100) {
+        if([self.userId integerValue] > 120 || [self.userId integerValue] < 100) {
             
             NSLog(@"100과 120사이의 숫자를 입력하세요.");
             [self showInputIdentifyAlert];
         }
         else {
-            [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
+            [[NSUserDefaults standardUserDefaults] setObject:self.userId forKey:@"userId"];
             
-            self.title = [NSString stringWithFormat:@"%@번님, 환영합니다.", userId];
+            self.title = [NSString stringWithFormat:@"%@번님, 환영합니다.", self.userId];
+            
+        
+            [self requestImageList];
         }
         
     }];
@@ -130,6 +186,12 @@
     [controller addAction:okAction];
     
     [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)requestImageList {
+    [self.request setUserID:self.userId];
+    [self.request requestImageList];
+    
 }
 
 - (void)showInputImageNameAlert {
@@ -149,14 +211,8 @@
         self.imageName = imageName;
         
         // RequestObject로 데이터를 보내서 서버에 업로드
-        RequestObject *request = [[RequestObject alloc] init];
-        [request uploadImage:self.selectedImage name:self.imageName];
-        
-        
-        [self.nameArray addObject:self.imageName];
-        [self.imageArray addObject:self.selectedImage];
-        
-        [self.tableView reloadData];
+        [self.request setUserID:[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"]];
+        [self.request uploadImage:self.selectedImage title:self.imageName];
         
     }];
     
@@ -169,7 +225,7 @@
     
 }
 
-- (IBAction)refleshTableView:(id)sender {
+- (IBAction)refleshTableView {
     
     [self.tableView reloadData];
 }
@@ -178,20 +234,19 @@
     
     [self presentViewController:self.imagePicker animated:YES completion:nil];
     
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     self.selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-//    NSLog(@"selectedImage : %@", self.selectedImage);
-    
     [picker dismissViewControllerAnimated:YES completion:^{
         [self showInputImageNameAlert];
     }];
     
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -234,9 +289,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     DetailImageViewController *detail = [segue destinationViewController];
-    // 나중에 선택한 셀의 이미지로 변경
-    [detail setSelectedImage:self.selectedImage];
-    [detail setImageName:self.imageName];
+    
+    NSIndexPath *indexPath = [(UITableView *)self.tableView indexPathForCell: self];
+    NSLog(@"indexPath : %@", indexPath);
+
     
 }
 

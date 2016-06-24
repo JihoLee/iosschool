@@ -15,6 +15,7 @@
 		FFC9B2521D1A5E9F004C2DCF /* ImageListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9B2511D1A5E9F004C2DCF /* ImageListTableViewController.m */; };
 		FFC9B2551D1A61C5004C2DCF /* RequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9B2541D1A61C5004C2DCF /* RequestObject.m */; };
 		FFC9B2581D1A63EE004C2DCF /* DetailImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9B2571D1A63EE004C2DCF /* DetailImageViewController.m */; };
+		FFC9B2A01D1D06D5004C2DCF /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = FFC9B29F1D1D06D5004C2DCF /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FFC9B2541D1A61C5004C2DCF /* RequestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestObject.m; sourceTree = "<group>"; };
 		FFC9B2561D1A63EE004C2DCF /* DetailImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailImageViewController.h; sourceTree = "<group>"; };
 		FFC9B2571D1A63EE004C2DCF /* DetailImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailImageViewController.m; sourceTree = "<group>"; };
+		FFC9B29F1D1D06D5004C2DCF /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				FFC9B2541D1A61C5004C2DCF /* RequestObject.m */,
 				FFC9B2561D1A63EE004C2DCF /* DetailImageViewController.h */,
 				FFC9B2571D1A63EE004C2DCF /* DetailImageViewController.m */,
+				FFC9B29F1D1D06D5004C2DCF /* placeholder.png */,
 			);
 			path = NetworkPj;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFC9B2491D1A5E1D004C2DCF /* LaunchScreen.storyboard in Resources */,
+				FFC9B2A01D1D06D5004C2DCF /* placeholder.png in Resources */,
 				FFC9B2461D1A5E1D004C2DCF /* Assets.xcassets in Resources */,
 				FFC9B2441D1A5E1D004C2DCF /* Main.storyboard in Resources */,
 			);
@@ -312,6 +316,7 @@
 				FFC9B24F1D1A5E1D004C2DCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
