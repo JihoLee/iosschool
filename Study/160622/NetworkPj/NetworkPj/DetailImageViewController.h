@@ -12,5 +12,6 @@
 
 @property (nonatomic) UIImage *selectedImage;
 @property (nonatomic) NSString *imageName;
+@property (nonatomic) NSString *imageTitle;
 
 @end

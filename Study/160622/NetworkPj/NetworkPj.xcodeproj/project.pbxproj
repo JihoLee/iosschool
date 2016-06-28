@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED02058B3A85D23EC6DA4B88 /* libPods-NetworkPj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC10D446E1A0DC07E95FD485 /* libPods-NetworkPj.a */; };
 		FFC9B23B1D1A5E1D004C2DCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9B23A1D1A5E1D004C2DCF /* main.m */; };
 		FFC9B23E1D1A5E1D004C2DCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9B23D1D1A5E1D004C2DCF /* AppDelegate.m */; };
 		FFC9B2441D1A5E1D004C2DCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC9B2421D1A5E1D004C2DCF /* Main.storyboard */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AF12356C762EDE1121455EE /* Pods-NetworkPj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPj.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPj/Pods-NetworkPj.release.xcconfig"; sourceTree = "<group>"; };
+		7FD1E1A8EEEB7E586042264F /* Pods-NetworkPj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPj/Pods-NetworkPj.debug.xcconfig"; sourceTree = "<group>"; };
+		AC10D446E1A0DC07E95FD485 /* libPods-NetworkPj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetworkPj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC9B2361D1A5E1D004C2DCF /* NetworkPj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkPj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC9B23A1D1A5E1D004C2DCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FFC9B23C1D1A5E1D004C2DCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -41,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED02058B3A85D23EC6DA4B88 /* libPods-NetworkPj.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		653EBF2EA8452936D308CF80 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FD1E1A8EEEB7E586042264F /* Pods-NetworkPj.debug.xcconfig */,
+				1AF12356C762EDE1121455EE /* Pods-NetworkPj.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AB1A23AF4DE1D902192F5242 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC10D446E1A0DC07E95FD485 /* libPods-NetworkPj.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FFC9B22D1D1A5E1D004C2DCF = {
 			isa = PBXGroup;
 			children = (
 				FFC9B2381D1A5E1D004C2DCF /* NetworkPj */,
 				FFC9B2371D1A5E1D004C2DCF /* Products */,
+				653EBF2EA8452936D308CF80 /* Pods */,
+				AB1A23AF4DE1D902192F5242 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +123,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FFC9B24D1D1A5E1D004C2DCF /* Build configuration list for PBXNativeTarget "NetworkPj" */;
 			buildPhases = (
+				F2616C4DBA25CD6751673498 /* [CP] Check Pods Manifest.lock */,
 				FFC9B2321D1A5E1D004C2DCF /* Sources */,
 				FFC9B2331D1A5E1D004C2DCF /* Frameworks */,
 				FFC9B2341D1A5E1D004C2DCF /* Resources */,
+				F78FCC31F847D4EA4B51BC9D /* [CP] Embed Pods Frameworks */,
+				233FB775315AA78DFF8B292A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,6 +184,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		233FB775315AA78DFF8B292A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkPj/Pods-NetworkPj-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2616C4DBA25CD6751673498 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F78FCC31F847D4EA4B51BC9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetworkPj/Pods-NetworkPj-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FFC9B2321D1A5E1D004C2DCF /* Sources */ = {
@@ -277,6 +352,7 @@
 		};
 		FFC9B24E1D1A5E1D004C2DCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FD1E1A8EEEB7E586042264F /* Pods-NetworkPj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NetworkPj/Info.plist;
@@ -288,6 +364,7 @@
 		};
 		FFC9B24F1D1A5E1D004C2DCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AF12356C762EDE1121455EE /* Pods-NetworkPj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NetworkPj/Info.plist;

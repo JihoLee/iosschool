@@ -29,7 +29,9 @@
     [super viewDidLoad];
     
     RequestObject *request = [RequestObject requestInstance];
+    
     self.request = request;
+    
     self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
     if([self.userId length] > 0) {
         self.title = [NSString stringWithFormat:@"%@번님, 환영합니다.", self.userId];
@@ -148,7 +150,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     
     
 }
@@ -290,8 +291,12 @@
     
     DetailImageViewController *detail = [segue destinationViewController];
     
-    NSIndexPath *indexPath = [(UITableView *)self.tableView indexPathForCell: self];
-    NSLog(@"indexPath : %@", indexPath);
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSDictionary *dic = [self.result objectAtIndex:indexPath.row];
+    NSString *imageUrl = [dic objectForKey:JSONKeyImageUrl];
+    NSString *imageTitle = [dic objectForKey:JSONKeyImageTitle];
+    [detail setImageName:imageUrl];
+    [detail setImageTitle:imageTitle];
 
     
 }

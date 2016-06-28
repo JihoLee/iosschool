@@ -7,6 +7,7 @@
 //
 
 #import "DetailImageViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface DetailImageViewController ()
 
@@ -20,8 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = self.imageName;
-    [self.imageView setImage:self.selectedImage];
+    self.title = self.imageTitle;
+    
+    // Here we use the new provided sd_setImageWithURL: method to load the web image
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageName]
+                      placeholderImage:nil options:SDWebImageProgressiveDownload | SDWebImageCacheMemoryOnly];
     
     self.isHideNavi = NO;
     

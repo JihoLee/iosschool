@@ -7,6 +7,7 @@
 //
 
 #import "RequestObject.h"
+#import "AFNetworking.h"
 
 @interface RequestObject()
 
@@ -31,7 +32,48 @@
 - (void)uploadImage:(UIImage *)image title:(NSString *)title {
     
     NSLog(@"image : %@, title : %@", image, title);
+
+    NSString *url = @"http://ios.yevgnenll.me/api/images/";
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
     
+    NSMutableDictionary *bodyParams = [[NSMutableDictionary alloc] init];
+    [bodyParams setObject:self.userID forKey:@"user_id"];
+    [bodyParams setObject:title forKey:@"title"];
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:url parameters:bodyParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        [formData appendPartWithFileData:imageData name:@"image_data" fileName:@"image.jpeg" mimeType:@"image/jpeg"];
+
+        
+    } error:nil];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+
+    NSURLSessionUploadTask *uploadTask;
+    uploadTask = [manager
+                  uploadTaskWithStreamedRequest:request
+                  progress:^(NSProgress * _Nonnull uploadProgress) {
+                      // This is not called back on the main queue.
+                      // You are responsible for dispatching to the main queue for UI updates
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          //Update the progress view
+                          
+                      });
+                  }
+                  completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                      if (error) {
+                          NSLog(@"Error: %@", error);
+                      } else {
+                          NSLog(@"%@ %@", response, responseObject);
+                          
+                          [[NSNotificationCenter defaultCenter] postNotificationName:ImageUploadDidSuccessNotification object:nil];
+                      }
+                  }];
+    
+    [uploadTask resume];
+    
+    
+    /*
     NSString *boundary = @"----------yagom";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
     
@@ -109,14 +151,44 @@
     
     // Upload start
     [uploadTask resume];
-    
+    */
     
 
 }
 
 - (void)requestImageList {
     
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
+    NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://ios.yevgnenll.me/api/images/?user_id=%@", self.userID]];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:requestURL];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if(!error) {
+            NSLog(@"respon : %@", responseObject);
+            if([[responseObject objectForKey:@"code"] isEqualToNumber:@200]) {
+                
+                NSLog(@"Success");
+                
+                NSArray *contentArray = responseObject[@"content"];
+                self.imageInfoJSONArray = contentArray;
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:ImageListUpdatedNotification object:nil];
+                
+            } else {
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:ImageListUpdatedFailNotification object:nil];
+                
+            }
+        }
+    }];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [dataTask resume];
+    
+    // 기존 애플에서 제공하는 코드를 사용한 경우
+    /*
     NSLog(@"user_id : %@", self.userID);
     NSString *URLString = [NSString stringWithFormat:@"http://ios.yevgnenll.me/api/images/?user_id=%@", self.userID];
     NSURL *requestURL = [NSURL URLWithString:URLString];
@@ -152,6 +224,7 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     [dataTask resume];
+     */
     
 }
 
