@@ -9,6 +9,8 @@
 #import "ImageListTableViewController.h"
 #import "DetailImageViewController.h"
 #import "RequestObject.h"
+#import "AFNetworking.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ImageListTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -119,13 +121,42 @@
     NSString *thumbnailURLString = imageInfo[JSONKeyThumbnailURL];
     NSURL *thumbnailURL = [NSURL URLWithString:thumbnailURLString];
     
-    cell.imageView.image = [UIImage imageNamed:@"placeholder"];
+//    cell.imageView.image = [UIImage imageNamed:@"placeholder"];
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
+    [cell.imageView sd_setImageWithURL:thumbnailURL
+                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+
     // 동기코드이기때문에 이미지를 받아올 때까지 화면이 정지함
 //    cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailURL]];
     
     // 비동기코드
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+//    
+//    NSURLRequest *request = [NSURLRequest requestWithURL:thumbnailURL];
+//    
+//    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//
+//            NSLog(@"responseObject : %@", responseObject);
+//            
+//            NSData *imageData = (NSData *) responseObject;
+//            
+//            UIImage *image = [UIImage imageWithData:imageData];
+//        
+//            if(image) {
+//                
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    // 테이블뷰의 indexPath에 해당하는 셀을 가져옴
+//                    UITableViewCell *cellForUpdate = [tableView cellForRowAtIndexPath:indexPath];
+//                    cellForUpdate.imageView.image = image;
+//                });
+//            }
+//
+//    }];
+//    [dataTask resume];
+    
+    /*
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:thumbnailURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(data) {
             UIImage *image = [UIImage imageWithData:data];
@@ -141,7 +172,7 @@
     }];
     
     [task resume];
-    
+     */
     return cell;
 }
 
