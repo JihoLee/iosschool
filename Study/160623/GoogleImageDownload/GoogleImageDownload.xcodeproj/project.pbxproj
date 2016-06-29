@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C440AB0103F98BE8B346ABDB /* libPods-GoogleImageDownload.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BC28519B2FFFAB478F2AFA /* libPods-GoogleImageDownload.a */; };
 		FFC9B2671D1BB2B9004C2DCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9B2661D1BB2B9004C2DCF /* main.m */; };
 		FFC9B26A1D1BB2B9004C2DCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9B2691D1BB2B9004C2DCF /* AppDelegate.m */; };
 		FFC9B26D1D1BB2B9004C2DCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC9B26C1D1BB2B9004C2DCF /* ViewController.m */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09BC28519B2FFFAB478F2AFA /* libPods-GoogleImageDownload.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoogleImageDownload.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		600A60604A7801018B7809E2 /* Pods-GoogleImageDownload.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleImageDownload.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleImageDownload/Pods-GoogleImageDownload.debug.xcconfig"; sourceTree = "<group>"; };
+		D2128778D20512006022CBAE /* Pods-GoogleImageDownload.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleImageDownload.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleImageDownload/Pods-GoogleImageDownload.release.xcconfig"; sourceTree = "<group>"; };
 		FFC9B2621D1BB2B9004C2DCF /* GoogleImageDownload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleImageDownload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC9B2661D1BB2B9004C2DCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FFC9B2681D1BB2B9004C2DCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C440AB0103F98BE8B346ABDB /* libPods-GoogleImageDownload.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E33AECB3D24DC83C0C3AFBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				600A60604A7801018B7809E2 /* Pods-GoogleImageDownload.debug.xcconfig */,
+				D2128778D20512006022CBAE /* Pods-GoogleImageDownload.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E86E3A2EE5BB619373815E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09BC28519B2FFFAB478F2AFA /* libPods-GoogleImageDownload.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FFC9B2591D1BB2B9004C2DCF = {
 			isa = PBXGroup;
 			children = (
 				FFC9B2641D1BB2B9004C2DCF /* GoogleImageDownload */,
 				FFC9B2631D1BB2B9004C2DCF /* Products */,
+				9E33AECB3D24DC83C0C3AFBC /* Pods */,
+				9E86E3A2EE5BB619373815E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FFC9B2791D1BB2B9004C2DCF /* Build configuration list for PBXNativeTarget "GoogleImageDownload" */;
 			buildPhases = (
+				5BF51D59B87D6FFAA6F091B1 /* [CP] Check Pods Manifest.lock */,
 				FFC9B25E1D1BB2B9004C2DCF /* Sources */,
 				FFC9B25F1D1BB2B9004C2DCF /* Frameworks */,
 				FFC9B2601D1BB2B9004C2DCF /* Resources */,
+				2720B0FBD9D4A66238E11622 /* [CP] Embed Pods Frameworks */,
+				0F4580C26C6BC57950FD59D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -143,6 +170,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F4580C26C6BC57950FD59D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoogleImageDownload/Pods-GoogleImageDownload-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2720B0FBD9D4A66238E11622 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoogleImageDownload/Pods-GoogleImageDownload-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BF51D59B87D6FFAA6F091B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FFC9B25E1D1BB2B9004C2DCF /* Sources */ = {
@@ -261,6 +336,7 @@
 		};
 		FFC9B27A1D1BB2B9004C2DCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 600A60604A7801018B7809E2 /* Pods-GoogleImageDownload.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoogleImageDownload/Info.plist;
@@ -272,6 +348,7 @@
 		};
 		FFC9B27B1D1BB2B9004C2DCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2128778D20512006022CBAE /* Pods-GoogleImageDownload.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoogleImageDownload/Info.plist;
@@ -300,6 +377,7 @@
 				FFC9B27B1D1BB2B9004C2DCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
