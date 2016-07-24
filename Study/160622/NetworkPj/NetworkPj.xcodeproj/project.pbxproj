@@ -23,6 +23,8 @@
 		1AF12356C762EDE1121455EE /* Pods-NetworkPj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPj.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPj/Pods-NetworkPj.release.xcconfig"; sourceTree = "<group>"; };
 		7FD1E1A8EEEB7E586042264F /* Pods-NetworkPj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkPj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkPj/Pods-NetworkPj.debug.xcconfig"; sourceTree = "<group>"; };
 		AC10D446E1A0DC07E95FD485 /* libPods-NetworkPj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetworkPj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF904AB31D24BD20009ABE82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		FF904AB51D24BD2D009ABE82 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ko; path = ko.lproj/Info.plist; sourceTree = "<group>"; };
 		FFC9B2361D1A5E1D004C2DCF /* NetworkPj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkPj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFC9B23A1D1A5E1D004C2DCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FFC9B23C1D1A5E1D004C2DCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,7 +32,6 @@
 		FFC9B2431D1A5E1D004C2DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FFC9B2451D1A5E1D004C2DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFC9B2481D1A5E1D004C2DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FFC9B24A1D1A5E1D004C2DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC9B2501D1A5E9F004C2DCF /* ImageListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageListTableViewController.h; sourceTree = "<group>"; };
 		FFC9B2511D1A5E9F004C2DCF /* ImageListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListTableViewController.m; sourceTree = "<group>"; };
 		FFC9B2531D1A61C5004C2DCF /* RequestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestObject.h; sourceTree = "<group>"; };
@@ -95,7 +96,7 @@
 				FFC9B2421D1A5E1D004C2DCF /* Main.storyboard */,
 				FFC9B2451D1A5E1D004C2DCF /* Assets.xcassets */,
 				FFC9B2471D1A5E1D004C2DCF /* LaunchScreen.storyboard */,
-				FFC9B24A1D1A5E1D004C2DCF /* Info.plist */,
+				FF904AB41D24BD20009ABE82 /* Info.plist */,
 				FFC9B2391D1A5E1D004C2DCF /* Supporting Files */,
 				FFC9B2501D1A5E9F004C2DCF /* ImageListTableViewController.h */,
 				FFC9B2511D1A5E9F004C2DCF /* ImageListTableViewController.m */,
@@ -150,6 +151,7 @@
 				TargetAttributes = {
 					FFC9B2351D1A5E1D004C2DCF = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = PAFK4RNFW2;
 					};
 				};
 			};
@@ -160,6 +162,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = FFC9B22D1D1A5E1D004C2DCF;
 			productRefGroup = FFC9B2371D1A5E1D004C2DCF /* Products */;
@@ -249,6 +252,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		FF904AB41D24BD20009ABE82 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF904AB31D24BD20009ABE82 /* en */,
+				FF904AB51D24BD2D009ABE82 /* ko */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
 		FFC9B2421D1A5E1D004C2DCF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -308,6 +320,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = TEST_APP;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -345,6 +358,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = NetworkProject;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -355,7 +369,9 @@
 			baseConfigurationReference = 7FD1E1A8EEEB7E586042264F /* Pods-NetworkPj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NetworkPj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzzbag.NetworkPj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -367,7 +383,9 @@
 			baseConfigurationReference = 1AF12356C762EDE1121455EE /* Pods-NetworkPj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NetworkPj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzzbag.NetworkPj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
