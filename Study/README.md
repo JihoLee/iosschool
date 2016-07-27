@@ -68,3 +68,24 @@
 - UIToolBar
 - UITabBar (실습 x)
 - 화면전환(Present, Push)
+
+##### 27일차 실습 (2016 / 06 / 02) - iOS
+- SingleTone을 이용한 data load
+
+##### 33일차 실습 (2016 / 06 / 08) - iOS
+- UITableView Custom Cell 실습
+
+##### 34일차 실습 (2016 / 06 / 09) - iOS
+- Property 및 KVO, 테이블 data delete 실습
+
+##### 38일차 실습 (2016 / 06 / 13) - iOS
+##### 39일차 실습 (2016 / 06 / 14) - iOS
+##### 40일차 실습 (2016 / 06 / 15) - iOS
+- 개인 UI 및 기능 프로젝트
+
+##### 41일차 실습 (2016 / 06 / 22) - iOS
+- CoreData, 기본 Networking 실습
+
+##### 42일차 실습 (2016 / 06 / 23) - iOS
+- CocoaPods를 이용한 오픈소스 라이브러리 설치
+- AFNetworking, SDWebImage를 이용한 GoogleImageDownload 실습
